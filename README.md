@@ -1,2 +1,2 @@
-# icingadb-dark-colors-theme
+# IcingaDB Dark Colors
 IcingaDB Dark colors
