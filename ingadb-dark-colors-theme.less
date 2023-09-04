@@ -1,0 +1,201 @@
+/*! Icinga Web DB  | GPLv2+ */
+
+// Base tones
+@base00: hsl(0, 0%, 45%);
+@base01: hsl(0, 0%, 40%);
+@base02: hsl(0, 0%, 10%);
+@base03: hsl(0, 0%, 8%);
+@base04: hsl(0, 0%, 0%);
+
+@base0: hsl(0, 0%, 55%);
+@base1: hsl(0, 0%, 60%);
+@base2: hsl(0, 0%, 88%);
+
+
+// Background color for <body>
+@body-bg-color: @base04;
+
+// Menu colors
+@menu-bg-color: @base04;
+@menu-active-bg-color: @base02;
+
+
+// DOWN
+@icingadb-down-handled-background: #ff99aa;
+@icingadb-down-handled-text: #000000;
+
+@icingadb-down-background: #E92F41;
+@icingadb-down-text: #FFFFFF;
+
+// CRITICAL
+@icingadb-critical-handled-background: #ff99aa;
+@icingadb-critical-handled-text: #000000;
+
+@icingadb-critical-background: #E92F41;
+@icingadb-critical-text: #FFFFFF;
+
+
+// WARNING
+@icingadb-warning-handled-background: #ffcc66;
+@icingadb-warning-handled-text: #000000;
+
+@icingadb-warning-background: #C36803;
+@icingadb-warning-text: #FFFFFF;
+
+// UNKNOWN
+@icingadb-unknown-handled-background: #EE82EE;
+@icingadb-unknown-handled-text: #000000;
+
+@icingadb-unknown-background: #9400D3;
+@icingadb-unknown-text: #FFFFFF;
+
+
+// STATE BADGE
+.badge,
+.state-badge,
+.icon-stateful,
+.icinga-module.module-icingadb .service-grid-link,
+.icinga-module.module-icingadb .state-badge,
+.icinga-module.module-icingadb .state-ball,
+.icinga-module.module-icingadb .state-change
+ {
+
+  &.handled {
+    opacity: 1;
+  }
+
+  &.state-down,
+  &.state-down:before,
+  &.state-down:after {
+    background-color : @icingadb-down-background;
+    color : @icingadb-down-text;
+  }
+
+  &.state-down.handled,
+  &.state-down.handled:before,
+  &.state-down.handled:after  {
+    text-decoration: underline;
+    background-color : @icingadb-down-handled-background;
+    color : @icingadb-down-handled-text;
+  }
+
+  &.state-critical,
+  &.state-critical:before,
+  &.state-critical:after {
+    background-color : @icingadb-critical-background;
+    color : @icingadb-critical-text;
+  }
+
+  &.state-critical.handled,
+  &.state-critical.handled:before,
+  &.state-critical.handled:after {
+    text-decoration: underline;
+    background-color : @icingadb-critical-handled-background;
+    color : @icingadb-critical-handled-text;
+  }
+
+  &.state-warning,
+  &.state-warning:before,
+  &.state-warning:after {
+    background-color : @icingadb-warning-background;
+    color : @icingadb-warning-text;
+  }
+
+  &.state-warning.handled,
+  &.state-warning.handled:before,
+  &.state-warning.handled:after {
+    text-decoration: underline;
+    background-color : @icingadb-warning-handled-background;
+    color : @icingadb-warning-handled-text;
+  }
+
+  &.state-unknown,
+  &.state-unknown:before,
+  &.state-unknown:after {
+    background-color : @icingadb-unknown-background;
+    color : @icingadb-unknown-text;
+  }
+
+  &.state-unknown.handled,
+  &.state-unknown.handled:before,
+  &.state-unknown.handled:after {
+    text-decoration: underline;
+    background-color : @icingadb-unknown-handled-background;
+    color : @icingadb-unknown-handled-text;
+  }
+
+  &.state-up.handled {
+    background-color: @color-up;
+  }
+
+}
+
+.donut-label-big
+ {
+
+  &.state-down {
+    color : @icingadb-down-background;
+  }
+
+  &.state-down.handled {
+    color : @icingadb-down-handled-background;
+  }
+
+  &.state-critical {
+    color : @icingadb-critical-background;
+  }
+
+  &.state-critical.handled {
+    color : @icingadb-critical-handled-background;
+  }
+
+  &.state-warning {
+    color : @icingadb-warning-background;
+  }
+
+  &.state-warning.handled {
+    color : @icingadb-warning-handled-background;
+  }
+
+  &.state-unknown {
+    color : @icingadb-unknown-background;
+  }
+
+  &.state-unknown.handled {
+    color : @icingadb-unknown-handled-background;
+  }
+
+}
+
+
+.slice-state-warning-handled {
+  stroke: @icingadb-warning-handled-background;
+  background: @icingadb-warning-handled-background;
+}
+
+.slice-state-warning {
+  stroke: @icingadb-warning-background;
+  background: @icingadb-warning-background;
+}
+
+.slice-state-critical-handled {
+  stroke: @icingadb-critical-handled-background;
+  background: @icingadb-critical-handled-background;
+}
+
+.slice-state-critical {
+  stroke: @icingadb-critical-background;
+  background: @icingadb-critical-background;
+}
+
+.slice-state-unknown-handled {
+  stroke: @icingadb-unknown-handled-background;
+  background: @icingadb-unknown-handled-background;
+}
+
+.slice-state-unknown {
+  stroke: @icingadb-unknown-background;
+  background: @icingadb-unknown-background;
+}
+
+
