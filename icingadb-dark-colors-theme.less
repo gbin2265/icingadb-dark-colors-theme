@@ -198,4 +198,12 @@
   background: @icingadb-unknown-background;
 }
 
+#menu img[src*="/img/icons/"] {
+  &:not([src$="tux.png"]):not([src$="win.png"]):not([src$="_white.png"]) {
+    -webkit-filter: invert(0%);
+    -moz-filter: invert(0%);
+    -ms-filter: invert(0%);
+    filter: invert(0%);
+  }
+}
 
