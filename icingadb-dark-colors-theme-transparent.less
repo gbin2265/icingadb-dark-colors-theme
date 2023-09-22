@@ -263,7 +263,7 @@
   background-color: unset;
 }
 
-// ICON STATE HOST-LIST UP / PENDING
+// ICON STATE HOST-LIST UP
 .icinga-module.module-icingadb .state-ball.state-up .icon {
   color:#000000;
 }
@@ -276,6 +276,43 @@
   color:#000000;
 }
 
+.icinga-module.module-icingadb .state-change .state-ball.state-up .icon {
+  color:#FFFFFF;
+}
+
+.icinga-module.module-icingadb .visual .state-ball.state-up.ball-size-l .icon,
+.visual .state-ball.state-up.ball-size-l .icon {
+  color:#000000;
+}
+
+// ICON STATE SERVICE-LIST OK
+.icinga-module.module-icingadb .state-ball.state-ok .icon {
+  color:#000000;
+}
+
+.icinga-module.module-icingadb .state-change .state-ball.state-ok.ball-size-l {
+  background-color : @icingadb-ok-background;
+}
+
+.icinga-module.module-icingadb .state-change .state-ball.state-ok.ball-size-l .icon {
+  color:#000000;
+}
+
+.icinga-module.module-icingadb .state-change .state-ball.state-ok .icon,
+.state-change .state-ball.state-ok .icon {
+  color:#000000;
+}
+
+.icinga-module.module-icingadb .visual .state-ball.state-ok.ball-size-l .icon,
+.visual .state-ball.state-ok.ball-size-l .icon {
+  color:#000000;
+}
+
+// ICON STATE SERVICE-LIST PENDING
+.icinga-module.module-icingadb .state-ball.state-pending .icon {
+  color:#000000;
+}
+
 .icinga-module.module-icingadb .state-change .state-ball.state-pending.ball-size-l {
   background-color : @icingadb-pending-background;
 }
@@ -284,17 +321,16 @@
   color:#000000;
 }
 
-.icinga-module.module-icingadb .state-change .state-ball.state-up .icon {
-  color:#FFFFFF;
-}
-
-.icinga-module.module-icingadb .state-ball.state-pending .icon {
+.icinga-module.module-icingadb .state-change .state-ball.state-pending .icon,
+.state-change .state-ball.state-pending .icon {
   color:#000000;
 }
 
-.icinga-module.module-icingadb .state-change .state-ball.state-pending .icon {
-  color:#FFFFFF;
+.icinga-module.module-icingadb .visual .state-ball.state-pending.ball-size-l .icon,
+.visual .state-ball.state-pending.ball-size-l .icon {
+  color:#000000;
 }
+
 
 #menu img[src*="/img/icons/"] {
   &:not([src$="tux.png"]):not([src$="win.png"]):not([src$="_white.png"]) {
@@ -304,5 +340,4 @@
     filter: invert(0%);
   }
 }
-
 
