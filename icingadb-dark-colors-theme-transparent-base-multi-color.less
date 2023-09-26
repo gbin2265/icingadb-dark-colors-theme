@@ -18,6 +18,9 @@
 @menu-active-bg-color: @base02;
 
 // HOST-UP
+@icingadb-up-handled-background: #44bb77;
+@icingadb-up-handled-text: #000000;
+
 @icingadb-up-background: #44bb77;
 @icingadb-up-text: #FFFFFF;
 
@@ -25,14 +28,13 @@
 @icingadb-down-handled-background: #ff99aa;
 @icingadb-down-handled-text: #000000;
 
-@icingadb-down-background: #E92F41;
+@icingadb-down-background: #ff5566;
 @icingadb-down-text: #FFFFFF;
 
-// HOST-PENDING
-@icingadb-pending-background: #77aaff;
-@icingadb-pending-text: #000000;
-
 // SERVICE-OK
+@icingadb-ok-handled-background: #44bb77;
+@icingadb-ok-handled-text: #000000;
+
 @icingadb-ok-background: #44bb77;
 @icingadb-ok-text: #FFFFFF;
 
@@ -40,22 +42,30 @@
 @icingadb-critical-handled-background: #ff99aa;
 @icingadb-critical-handled-text: #000000;
 
-@icingadb-critical-background: #E92F41;
+@icingadb-critical-background: #ff5566;
 @icingadb-critical-text: #FFFFFF;
 
 // SERVICE-WARNING
-@icingadb-warning-handled-background: #ffcc66;
+@icingadb-warning-handled-background: #C36803;
 @icingadb-warning-handled-text: #000000;
 
-@icingadb-warning-background: #C36803;
+@icingadb-warning-background: #ffcc66;
 @icingadb-warning-text: #FFFFFF;
 
 // SERVICE-UNKNOWN
 @icingadb-unknown-handled-background: #EE82EE;
 @icingadb-unknown-handled-text: #000000;
 
-@icingadb-unknown-background: #9400D3;
+@icingadb-unknown-background: #aa44ff;
 @icingadb-unknown-text: #FFFFFF;
+
+// HOST-PENDING
+@icingadb-pending-handled-background: #77aaff;
+@icingadb-pending-handled-text: #000000;
+
+@icingadb-pending-background: #77aaff;
+@icingadb-pending-text: #FFFFFF;
+
 
 // STATE BADGE
 .badge,
@@ -63,20 +73,21 @@
 .icinga-module.module-icingadb .state-badge
  {
 
-  &.state-up {
+  &.state-up,
+  &.state-up:before,
+  &.state-up:after {
     border-style: solid;
     border-width: 0.16666667em;
-    border-color: @color-up;
-    background-color: @color-up;
-    color: #000000
+    background-color: @icingadb-up-background;
+    border-color: @icingadb-up-background;
+    color: @icingadb-up-text;
   }
 
   &.state-up.handled {
     border-style: solid;
     border-width: 0.16666667em;
-    border-color: @color-up;
-    background-color: @color-up;
-    color: #000000
+    border-color : @icingadb-up-handled-background;
+    color : @icingadb-up-handled-background;
   }
 
   &.state-down,
@@ -89,17 +100,6 @@
     color : @icingadb-down-text;
   }
 
-  &.state-pending,
-  &.state-pending:before,
-  &.state-pending:after {
-    border-style: solid;
-    border-width: 0.16666667em;
-    background-color : @icingadb-pending-background;
-    border-color : @icingadb-pending-background;
-    color : @icingadb-pending-text;
-  }
-
-
   &.state-down.handled,
   &.state-down.handled:before,
   &.state-down.handled:after  {
@@ -107,6 +107,23 @@
     border-width: 0.16666667em;
     border-color : @icingadb-down-handled-background;
     color : @icingadb-down-handled-background;
+  }
+
+  &.state-ok,
+  &.state-ok:before,
+  &.state-ok:after {
+    border-style: solid;
+    border-width: 0.16666667em;
+    border-color: @icingadb-ok-background;
+    background-color: @icingadb-ok-background;
+    color: @icingadb-ok-text;
+  }
+
+  &.state-ok.handled {
+    border-style: solid;
+    border-width: 0.16666667em;
+    border-color: @icingadb-ok-handled-background;
+    color: @icingadb-ok-handled-text;
   }
 
   &.state-critical,
@@ -166,19 +183,24 @@
     color : @icingadb-unknown-handled-background;
   }
 
-  &.state-ok {
+  &.state-pending,
+  &.state-pending:before,
+  &.state-pending:after {
     border-style: solid;
     border-width: 0.16666667em;
-    border-color: @color-up;
-    background-color: @color-up;
-    color: #000000
+    background-color : @icingadb-pending-background;
+    border-color : @icingadb-pending-background;
+    color : @icingadb-pending-text;
   }
 
-  &.state-ok.handled {
+  &.state-pending.handled,
+  &.state-pending.handled:before,
+  &.state-pending.handled:after {
     border-style: solid;
     border-width: 0.16666667em;
-    border-color: @color-up;
-    color: #000000
+    background-color : @icingadb-pending-handled-background;
+    border-color : @icingadb-pending-handled-background;
+    color : @icingadb-pending-handled-text;
   }
 
   &.handled {
@@ -198,11 +220,6 @@
 .state-ball.state-down {
   background-color : @icingadb-down-background;
   color : @icingadb-down-text;
-}
-
-.state-ball.state-pending {
-  background-color : @icingadb-pending-background;
-  color : @icingadb-pending-text;
 }
 
 .state-ball.state-ok {
@@ -225,6 +242,12 @@
   color : @icingadb-unknown-text;
 }
 
+.state-ball.state-pending {
+  background-color : @icingadb-pending-background;
+  color : @icingadb-pending-text;
+}
+
+
 // State Ball Handled
 .state-ball.handled {
   opacity: 1;
@@ -233,9 +256,19 @@
   border-width: 0.16666667em;
 }
 
+.state-ball.state-up.handled {
+  border-color : @icingadb-up-handled-background;
+  color : @icingadb-up-handled-background;
+}
+
 .state-ball.state-down.handled {
   border-color : @icingadb-down-handled-background;
   color : @icingadb-down-handled-background;
+}
+
+.state-ball.state-ok.handled {
+  border-color : @icingadb-ok-handled-background;
+  color : @icingadb-ok-handled-background;
 }
 
 .state-ball.state-critical.handled {
@@ -253,39 +286,57 @@
   color : @icingadb-unknown-handled-background;
 }
 
+.state-ball.state-pending.handled {
+  border-color : @icingadb-pending-background;
+  color : @icingadb-pending-background;
+}
+
+
+.icinga-module.module-icingadb .state-change .state-ball.handled .icon {
+  background-color: unset;
+}
+
+.icinga-module.module-icingadb .state-change .state-ball.state-up.handled:before,
 .icinga-module.module-icingadb .state-change .state-ball.state-down.handled:before,
+.icinga-module.module-icingadb .state-change .state-ball.state-ok.handled:before,
 .icinga-module.module-icingadb .state-change .state-ball.state-critical.handled:before,
 .icinga-module.module-icingadb .state-change .state-ball.state-warning.handled:before,
-.icinga-module.module-icingadb .state-change .state-ball.state-unknown.handled:before {
+.icinga-module.module-icingadb .state-change .state-ball.state-unknown.handled:before,
+.icinga-module.module-icingadb .state-change .state-ball.state-pending.handled:before {
   background-color: #000000;
 }
+
 .icinga-module.module-icingadb .state-change .state-ball.handled:after {
   background-color: unset;
 }
 
-// ICON STATE HOST-LIST UP
+
+// UP
 .icinga-module.module-icingadb .state-ball.state-up .icon {
   color:#000000;
 }
+
 
 .icinga-module.module-icingadb .state-change .state-ball.state-up.ball-size-l {
   background-color : @icingadb-up-background;
 }
 
-.icinga-module.module-icingadb .state-change .state-ball.state-up.ball-size-l .icon {
-  color:#000000;
-}
-
-.icinga-module.module-icingadb .state-change .state-ball.state-up .icon {
-  color:#FFFFFF;
-}
-
+.icinga-module.module-icingadb .state-change .state-ball.state-up.ball-size-l .icon,
+.icinga-module.module-icingadb .state-change .state-ball.state-up .icon,
+.state-change .state-ball.state-up .icon,
 .icinga-module.module-icingadb .visual .state-ball.state-up.ball-size-l .icon,
 .visual .state-ball.state-up.ball-size-l .icon {
   color:#000000;
 }
 
-// ICON STATE SERVICE-LIST OK
+
+.icinga-module.module-icingadb .visual .state-ball.state-up.ball-size-l .icon, 
+.visual .state-ball.state-up.ball-size-l .icon {
+  background-color: unset;
+  color: @icingadb-up-background;
+}
+
+// OK
 .icinga-module.module-icingadb .state-ball.state-ok .icon {
   color:#000000;
 }
@@ -294,21 +345,23 @@
   background-color : @icingadb-ok-background;
 }
 
-.icinga-module.module-icingadb .state-change .state-ball.state-ok.ball-size-l .icon {
-  color:#000000;
-}
-
+.icinga-module.module-icingadb .state-change .state-ball.state-ok.ball-size-l .icon,
 .icinga-module.module-icingadb .state-change .state-ball.state-ok .icon,
-.state-change .state-ball.state-ok .icon {
-  color:#000000;
-}
-
+.state-change .state-ball.state-ok .icon,
 .icinga-module.module-icingadb .visual .state-ball.state-ok.ball-size-l .icon,
+.visual .state-ball.state-ok.ball-size-l.handled .icon,
 .visual .state-ball.state-ok.ball-size-l .icon {
   color:#000000;
 }
 
-// ICON STATE SERVICE-LIST PENDING
+.icinga-module.module-icingadb .visual .state-ball.state-ok.ball-size-l .icon, 
+.visual .state-ball.state-ok.ball-size-l .icon {
+  background-color: unset;
+  color: @icingadb-ok-background;
+}
+
+
+// PENDING
 .icinga-module.module-icingadb .state-ball.state-pending .icon {
   color:#000000;
 }
@@ -317,19 +370,31 @@
   background-color : @icingadb-pending-background;
 }
 
-.icinga-module.module-icingadb .state-change .state-ball.state-pending.ball-size-l .icon {
-  color:#000000;
-}
-
+.icinga-module.module-icingadb .state-change .state-ball.state-pending.ball-size-l .icon,
 .icinga-module.module-icingadb .state-change .state-ball.state-pending .icon,
-.state-change .state-ball.state-pending .icon {
+.state-change .state-ball.state-pending .icon,
+.icinga-module.module-icingadb .visual .state-ball.state-pending.ball-size-l .icon,
+.visual .state-ball.state-opending.ball-size-l.handled .icon,
+.visual .state-ball.state-opending.ball-size-l .icon {
   color:#000000;
 }
 
-.icinga-module.module-icingadb .visual .state-ball.state-pending.ball-size-l .icon,
+.icinga-module.module-icingadb .visual .state-ball.state-pending.ball-size-l .icon, 
 .visual .state-ball.state-pending.ball-size-l .icon {
-  color:#000000;
+  background-color: unset;
+  color: @icingadb-pending-background;
 }
+
+
+.icinga-module.module-icingadb .state-change .state-ball.state-ok.ball-size-l.handled {
+  background-color : unset;
+}
+
+//.icinga-module.module-icingadb .visual .state-change .state-ball.state-ok.handled .icon {
+//  background-color: unset;
+//  color:  @icingadb-ok-background; 
+//}
+
 
 
 #menu img[src*="/img/icons/"] {
